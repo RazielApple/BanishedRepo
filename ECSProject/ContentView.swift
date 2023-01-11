@@ -13,7 +13,7 @@ struct ContentView: View {
             Image(systemName: "person.fill")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("jng differences")
+            Text("jungle differences")
         }
         .padding()
     }
