@@ -9,13 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "person.fill")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("jungle")
+        NavigationStack{
+            VStack{
+                bodyView()
+                matchView()
+            }.navigationTitle("Select your Dress")
         }
-        .padding()
     }
 }
 
