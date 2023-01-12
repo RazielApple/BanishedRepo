@@ -12,47 +12,51 @@ struct bodyView: View {
     @State var isTapped2 = false
     @State var isTapped3 = false
     
+    @State private var shirtColor =
+                Color(.black)
+    @State private var pantsColor =
+                Color(.black)
+    @State private var shoesColor =
+                Color(.black)
     var body: some View {
         VStack{
-            Button {
-                isTapped = true
-            } label: {
+            
                 ZStack{
                     Image("shirt")
+                        .renderingMode(.template)
                         .resizable()
+                        .foregroundColor(shirtColor)
                         .frame(width: 130,height: 130)
-                    Text(Image(systemName: "plus.circle.fill"))
-                        .foregroundColor(.mint)
-                        .font(.largeTitle)
+                    ColorPicker("", selection: $shirtColor)
+                        .padding(.trailing, 60)
+
                     
-                }
+                
             }
-            Button {
-                isTapped = true
-            } label: {
+            
                 ZStack{
                     Image("pants")
+                        .renderingMode(.template)
                         .resizable()
                         .frame(width: 130,height: 130)
-                    Text(Image(systemName: "plus.circle.fill"))
-                        .foregroundColor(.mint)
-                        .font(.largeTitle)
-                        .padding(.bottom,70)
+                        .foregroundColor(pantsColor)
+                    ColorPicker("", selection: $pantsColor)
+                        .padding(.trailing, 60)
+
                     
                 }
-            }
-            Button {
-                isTapped = true
-            } label: {
+            
                 ZStack{
                     Image("shoes")
+                        .renderingMode(.template)
                         .resizable()
+                        .foregroundColor(shoesColor)
                         .frame(width: 130,height: 130)
-                    Text(Image(systemName: "plus.circle.fill"))
-                        .foregroundColor(.mint)
-                        .font(.largeTitle)
+                    ColorPicker("", selection: $shoesColor)
+                        .padding(.trailing, 60)
+
                     
-                }
+                
             }
         }
 
