@@ -13,7 +13,7 @@ struct bodyView: View {
     @State var isTapped3 = false
     
     @State private var shirtColor =
-                Color(.black)
+    Color(.black)
     @State private var pantsColor =
                 Color(.black)
     @State private var shoesColor =
@@ -26,18 +26,18 @@ struct bodyView: View {
                         .renderingMode(.template)
                         .resizable()
                         .foregroundColor(shirtColor)
+                        .shadow(radius: 5)
                         .frame(width: 130,height: 130)
                     ColorPicker("", selection: $shirtColor)
                         .padding(.trailing, 60)
-
-                    
-                
+                   
             }
             
                 ZStack{
                     Image("pants")
                         .renderingMode(.template)
                         .resizable()
+                        .shadow(radius: 5)
                         .frame(width: 130,height: 130)
                         .foregroundColor(pantsColor)
                     ColorPicker("", selection: $pantsColor)
@@ -50,14 +50,19 @@ struct bodyView: View {
                     Image("shoes")
                         .renderingMode(.template)
                         .resizable()
+                        .shadow(radius: 5)
                         .foregroundColor(shoesColor)
-                        .frame(width: 130,height: 130)
+                        .frame(width: 110,height: 110)
                     ColorPicker("", selection: $shoesColor)
                         .padding(.trailing, 60)
 
                     
                 
             }
+            
+           
+            
+
         }
 
     }
