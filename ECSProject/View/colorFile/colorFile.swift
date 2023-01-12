@@ -20,5 +20,5 @@ import SwiftUI
             "cyan" : Color(UIColor.systemCyan),
             "mint" : Color(UIColor.systemMint),
             "purple" : Color(UIColor.systemPurple)
-        ]
+    ]
 

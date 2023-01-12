@@ -13,7 +13,7 @@ struct ContentView: View {
             VStack{
                 bodyView()
                 matchView()
-            }.navigationTitle("Select your Dress")
+            }.navigationTitle("Unleash your Style")
         }
     }
 }
