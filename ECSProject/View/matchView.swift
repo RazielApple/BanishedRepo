@@ -24,7 +24,7 @@ struct matchView: View {
         //                }
         //            }
         NavigationLink {
-            matchPageView()
+            colorMatchView()
         } label: {
             ZStack{
                 Rectangle()
