@@ -19,9 +19,9 @@ struct bodyView: View {
     @State private var shoesColor =
                 Color(.black)
     var body: some View {
-        VStack{
+        VStack(spacing: 20){
             
-                ZStack{
+            HStack() {
                     Image("shirt")
                         .renderingMode(.template)
                         .resizable()
@@ -29,11 +29,12 @@ struct bodyView: View {
                         .shadow(radius: 5)
                         .frame(width: 130,height: 130)
                     ColorPicker("", selection: $shirtColor)
-                        .padding(.trailing, 60)
+//                        .padding(.trailing, 60)
                    
             }
+            .padding(.horizontal, 100)
             
-                ZStack{
+                HStack{
                     Image("pants")
                         .renderingMode(.template)
                         .resizable()
@@ -41,12 +42,13 @@ struct bodyView: View {
                         .frame(width: 130,height: 130)
                         .foregroundColor(pantsColor)
                     ColorPicker("", selection: $pantsColor)
-                        .padding(.trailing, 60)
+//                        .padding(.trailing, 60)
 
                     
                 }
+                .padding(.horizontal, 100)
             
-                ZStack{
+                HStack{
                     Image("shoes")
                         .renderingMode(.template)
                         .resizable()
@@ -54,11 +56,12 @@ struct bodyView: View {
                         .foregroundColor(shoesColor)
                         .frame(width: 110,height: 110)
                     ColorPicker("", selection: $shoesColor)
-                        .padding(.trailing, 60)
+//                        .padding(.trailing, 60)
 
                     
                 
             }
+                .padding(.horizontal, 102)
             
            
             

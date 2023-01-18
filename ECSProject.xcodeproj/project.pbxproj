@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		256A411A297840E500BA7FE9 /* colorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A4119297840E500BA7FE9 /* colorViewModel.swift */; };
+		256A411D2978411100BA7FE9 /* colorStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A411C2978411100BA7FE9 /* colorStruct.swift */; };
 		25CD905E296F0C5800538F32 /* ECSProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD905D296F0C5800538F32 /* ECSProjectApp.swift */; };
 		25CD9060296F0C5800538F32 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD905F296F0C5800538F32 /* ContentView.swift */; };
 		25CD9062296F0C5900538F32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25CD9061296F0C5900538F32 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		256A4119297840E500BA7FE9 /* colorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorViewModel.swift; sourceTree = "<group>"; };
+		256A411C2978411100BA7FE9 /* colorStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorStruct.swift; sourceTree = "<group>"; };
 		25CD905A296F0C5800538F32 /* ECSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25CD905D296F0C5800538F32 /* ECSProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECSProjectApp.swift; sourceTree = "<group>"; };
 		25CD905F296F0C5800538F32 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,6 +47,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		256A4118297840B700BA7FE9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				256A4119297840E500BA7FE9 /* colorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		256A411B297840FA00BA7FE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				256A411C2978411100BA7FE9 /* colorStruct.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		25CD9051296F0C5800538F32 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +82,8 @@
 		25CD905C296F0C5800538F32 /* ECSProject */ = {
 			isa = PBXGroup;
 			children = (
+				256A411B297840FA00BA7FE9 /* Model */,
+				256A4118297840B700BA7FE9 /* ViewModel */,
 				25CD905D296F0C5800538F32 /* ECSProjectApp.swift */,
 				AC961B39296F43B10003CE3A /* View */,
 				25CD9061296F0C5900538F32 /* Assets.xcassets */,
@@ -172,7 +194,9 @@
 			files = (
 				25CD9060296F0C5800538F32 /* ContentView.swift in Sources */,
 				AC961B3B296F43BE0003CE3A /* bodyView.swift in Sources */,
+				256A411A297840E500BA7FE9 /* colorViewModel.swift in Sources */,
 				AC961B3D296F447C0003CE3A /* matchView.swift in Sources */,
+				256A411D2978411100BA7FE9 /* colorStruct.swift in Sources */,
 				AC16F2B2297214A200C25BF6 /* colorMatchView.swift in Sources */,
 				AC527D3829703BE300753F34 /* colorFile.swift in Sources */,
 				AC527D332970241C00753F34 /* matchPageView.swift in Sources */,

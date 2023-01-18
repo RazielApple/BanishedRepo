@@ -12,7 +12,7 @@ struct ContentView: View {
         NavigationStack{
             VStack{
                 bodyView()
-                matchView()
+                matchView( prova: colorStructViewModel())
             }.navigationTitle("Unleash your Style")
         }
     }
