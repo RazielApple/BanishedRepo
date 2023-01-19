@@ -66,6 +66,7 @@
 		25CD9051296F0C5800538F32 = {
 			isa = PBXGroup;
 			children = (
+				25CD905D296F0C5800538F32 /* ECSProjectApp.swift */,
 				25CD905C296F0C5800538F32 /* ECSProject */,
 				25CD905B296F0C5800538F32 /* Products */,
 			);
@@ -84,7 +85,6 @@
 			children = (
 				256A411B297840FA00BA7FE9 /* Model */,
 				256A4118297840B700BA7FE9 /* ViewModel */,
-				25CD905D296F0C5800538F32 /* ECSProjectApp.swift */,
 				AC961B39296F43B10003CE3A /* View */,
 				25CD9061296F0C5900538F32 /* Assets.xcassets */,
 				25CD9063296F0C5900538F32 /* ECSProject.entitlements */,
