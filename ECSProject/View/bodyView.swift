@@ -8,64 +8,97 @@
 import SwiftUI
 
 struct bodyView: View {
-    @State var isTapped = false
-    @State var isTapped2 = false
-    @State var isTapped3 = false
+    @State var isShirtTapped = false
+    @State var isPantsTapped = false
+    @State var isShoesTapped = false
     
-    @State private var shirtColor =
-    Color(.black)
-    @State private var pantsColor =
-                Color(.black)
-    @State private var shoesColor =
-                Color(.black)
+    @State private var shirtColor = Color(.black)
+    @State private var pantsColor = Color(.black)
+    @State private var shoesColor = Color(.black)
     var body: some View {
         VStack(spacing: 20){
-            
             HStack() {
-                    Image("shirt")
+                Image(isShirtTapped ? "shirt" : "blankShirt")
                         .renderingMode(.template)
                         .resizable()
                         .foregroundColor(shirtColor)
                         .shadow(radius: 5)
                         .frame(width: 130,height: 130)
+                        .onTapGesture{
+                            isShirtTapped = true
+                        }
+                Text(Image(systemName: "minus.circle.fill"))
+                    .font(.system(size: 20))
+                    .foregroundColor(.red)
+                    .padding(.bottom, 100)
+                    .offset(x: -15)
+                    .opacity(isShirtTapped ? 1.0 : 0.0)
+                    .onTapGesture{
+                        isShirtTapped = false
+                        shirtColor = .black
+                    }
                     ColorPicker("", selection: $shirtColor)
-//                        .padding(.trailing, 60)
+                    .opacity(isShirtTapped ? 1.0 : 0.0)
+                    .padding(.trailing, 50)
                    
             }
-            .padding(.horizontal, 100)
+            .padding(.leading, 125)
             
-                HStack{
-                    Image("pants")
-                        .renderingMode(.template)
-                        .resizable()
-                        .shadow(radius: 5)
-                        .frame(width: 130,height: 130)
-                        .foregroundColor(pantsColor)
-                    ColorPicker("", selection: $pantsColor)
-//                        .padding(.trailing, 60)
-
-                    
-                }
-                .padding(.horizontal, 100)
-            
-                HStack{
-                    Image("shoes")
-                        .renderingMode(.template)
-                        .resizable()
-                        .shadow(radius: 5)
-                        .foregroundColor(shoesColor)
-                        .frame(width: 110,height: 110)
-                    ColorPicker("", selection: $shoesColor)
-//                        .padding(.trailing, 60)
-
-                    
+            HStack{
+                Image(isPantsTapped ? "pants" : "blankPants")
+                    .renderingMode(.template)
+                    .resizable()
+                    .shadow(radius: 5)
+                    .frame(width: 130,height: 130)
+                    .foregroundColor(pantsColor)
+                    .onTapGesture{
+                        isPantsTapped = true
+                    }
+                Text(Image(systemName: "minus.circle.fill"))
+                    .font(.system(size: 20))
+                    .foregroundColor(.red)
+                    .padding(.bottom, 100.0)
+                    .offset(x: -15)
+                    .opacity(isPantsTapped ? 1.0 : 0.0)
+                    .onTapGesture{
+                        isPantsTapped = false
+                        pantsColor = .black
+                    }
+                ColorPicker("", selection: $pantsColor)
+                    .opacity(isPantsTapped ? 1.0 : 0.0)
+                    .padding(.trailing, 50)
                 
             }
-                .padding(.horizontal, 102)
+                .padding(.leading, 125)
             
-           
+            HStack{
+                Image(isShoesTapped ? "shoes" : "blankShoes")
+                    .renderingMode(.template)
+                    .resizable()
+                    .shadow(radius: 5)
+                    .foregroundColor(shoesColor)
+                    .frame(width: 110,height: 110)
+                    .onTapGesture{
+                        isShoesTapped = true
+                    }
+                Text(Image(systemName: "minus.circle.fill"))
+                    .font(.system(size: 20))
+                    .foregroundColor(.red)
+                    .padding(.bottom, 100)
+                    .offset(x: -15)
+                    .onTapGesture{
+                        isShoesTapped = false
+                        shoesColor = .black
+                    }
+                    .opacity(isShoesTapped ? 1.0 : 0.0)
+                ColorPicker("", selection: $shoesColor)
+                    .opacity(isShoesTapped ? 1.0 : 0.0)
+                    .padding(.trailing, 50)
+                
             
-
+        }
+                .padding(.leading, 135)
+            
         }
 
     }
