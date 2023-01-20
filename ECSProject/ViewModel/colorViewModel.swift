@@ -29,12 +29,8 @@ class colorStructViewModel: ObservableObject {
             let url = urlComponents?.url
             let request = URLRequest(url: url!)
             let (data,_) = try await URLSession.shared.data(for: request)
-//            let str = String(decoding: data, as: UTF8.self)
-//            print(str)
+
             self.colors = try decoder.decode(ColorStruct.self, from: data)
-//            print(colors!.colors[0].rgb.r)
-//            print(colors!.colors[0].rgb.g)
-//            print(colors!.colors[0].hex.clean)
             firstColor = hexToRGB(hex: colors!.colors[0].hex.clean)
             secondColor = hexToRGB(hex: colors!.colors[1].hex.clean)
             
