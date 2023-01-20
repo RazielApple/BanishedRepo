@@ -104,7 +104,15 @@ struct bodyView: View {
                 .padding(.leading, 135)
             Button {
                 Task{
-                   await pickColors()
+                    if (isShirtTapped){
+                        await pickColors(shirtColor, &pantsColor, &shoesColor)
+                    }
+                    else if (isPantsTapped) {
+                        await pickColors(pantsColor, &shirtColor, &shoesColor)
+                    }
+                    else if (isShoesTapped) {
+                        await pickColors(shoesColor, &shirtColor, &pantsColor)
+                    }
                 }
             } label: {
                 ZStack{
@@ -122,43 +130,18 @@ struct bodyView: View {
 
     }
     
-    func pickColors() async {
-        if(isShirtTapped){
-            array = await colorVM.matchColors(r: Double((shirtColor.cgColor?.components![0])!),g: Double((shirtColor.cgColor?.components![1])!),b: Double((shirtColor.cgColor?.components![2])!))
-            if (array.count != 0){
-                pantsColor = Color(red: Double((array[0].cgColor?.components![0])!), green: Double((array[0].cgColor?.components![1])!), blue: Double((array[0].cgColor?.components![2])!))
-                shoesColor = Color(red: Double((array[1].cgColor?.components![0])!), green: Double((array[1].cgColor?.components![1])!), blue: Double((array[1].cgColor?.components![2])!))
-                isPantsTapped = true
-                isShoesTapped = true
-            }else{
-                pantsColor = Color.black
-                shoesColor = Color.gray
-            }
+    func pickColors(_ chosenClothColor: Color, _ firstNotChosenClothColor: inout Color, _ secondNotChosenClothColor: inout Color) async  {
+        array = await colorVM.matchColors(r: Double((chosenClothColor.cgColor?.components![0])!),g: Double((chosenClothColor.cgColor?.components![1])!),b: Double((chosenClothColor.cgColor?.components![2])!))
+        if (array.count != 0){
+            firstNotChosenClothColor = Color(red: Double((array[0].cgColor?.components![0])!), green: Double((array[0].cgColor?.components![1])!), blue: Double((array[0].cgColor?.components![2])!))
+            secondNotChosenClothColor = Color(red: Double((array[1].cgColor?.components![0])!), green: Double((array[1].cgColor?.components![1])!), blue: Double((array[1].cgColor?.components![2])!))
+        }else{
+            firstNotChosenClothColor = Color.black
+            secondNotChosenClothColor = Color.gray
         }
-        else if (isPantsTapped){
-            array = await colorVM.matchColors(r: Double((pantsColor.cgColor?.components![0])!),g: Double((pantsColor.cgColor?.components![1])!),b: Double((pantsColor.cgColor?.components![2])!))
-            if (array.count != 0){
-                shirtColor = Color(red: Double((array[0].cgColor?.components![0])!), green: Double((array[0].cgColor?.components![1])!), blue: Double((array[0].cgColor?.components![2])!))
-                shoesColor = Color(red: Double((array[1].cgColor?.components![0])!), green: Double((array[1].cgColor?.components![1])!), blue: Double((array[1].cgColor?.components![2])!))
-                isShirtTapped = true
-                isShoesTapped = true
-            }else{
-                shirtColor = Color.black
-                shoesColor = Color.gray
-            }
-        }
-        else if (isShoesTapped){
-            array = await colorVM.matchColors(r: Double((shoesColor.cgColor?.components![0])!),g: Double((shoesColor.cgColor?.components![1])!),b: Double((shoesColor.cgColor?.components![2])!))
-            if (array.count != 0){
-                shirtColor = Color(red: Double((array[0].cgColor?.components![0])!), green: Double((array[0].cgColor?.components![1])!), blue: Double((array[0].cgColor?.components![2])!))
-                pantsColor = Color(red: Double((array[1].cgColor?.components![0])!), green: Double((array[1].cgColor?.components![1])!), blue: Double((array[1].cgColor?.components![2])!))
-                isShirtTapped = true
-                isPantsTapped = true
-            }else{
-                shirtColor = Color.black
-                pantsColor = Color.gray
-            }
-        }
+        isShirtTapped = true
+        isPantsTapped = true
+        isShoesTapped = true
     }
 }
 
