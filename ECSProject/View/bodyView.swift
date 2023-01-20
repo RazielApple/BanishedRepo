@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct bodyView: View {
+    var colorVM: colorStructViewModel
+    @State var array = [Color]()
+    
     @State var isShirtTapped = false
     @State var isPantsTapped = false
     @State var isShoesTapped = false
@@ -40,6 +43,7 @@ struct bodyView: View {
                     ColorPicker("", selection: $shirtColor)
                     .opacity(isShirtTapped ? 1.0 : 0.0)
                     .padding(.trailing, 50)
+                
                    
             }
             .padding(.leading, 125)
@@ -98,6 +102,23 @@ struct bodyView: View {
             
         }
                 .padding(.leading, 135)
+            Button {
+                Task{
+                    array = await colorVM.matchColors(r: Double((shirtColor.cgColor?.components![0])!),g: Double((shirtColor.cgColor?.components![1])!),b: Double((shirtColor.cgColor?.components![2])!))
+                    pantsColor = Color(red: Double((array[0].cgColor?.components![0])!), green: Double((array[0].cgColor?.components![1])!), blue: Double((array[0].cgColor?.components![2])!))
+                    shoesColor = Color(red: Double((array[1].cgColor?.components![0])!), green: Double((array[1].cgColor?.components![1])!), blue: Double((array[1].cgColor?.components![2])!))
+                }
+            } label: {
+                ZStack{
+                    Rectangle()
+                        .frame(width: 180,height: 80)
+                        .foregroundColor(.mint)
+                        .cornerRadius(20)
+                    Text("Match")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                }
+            }
             
         }
 
@@ -106,6 +127,6 @@ struct bodyView: View {
 
 struct bodyView_Previews: PreviewProvider {
     static var previews: some View {
-        bodyView()
+        bodyView(colorVM: colorStructViewModel())
     }
 }

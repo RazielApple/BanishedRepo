@@ -29,7 +29,7 @@ struct matchView: View {
 //        } label: {
             Button {
                 Task{
-                     await prova.getLearner()
+                     //await prova.matchColors()
                 }
             } label: {
                 ZStack{

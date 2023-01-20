@@ -14,12 +14,14 @@ class colorStructViewModel: ObservableObject {
     let decoder = JSONDecoder()
     var urlComponents = URLComponents(string: "https://www.thecolorapi.com")
     
-    func getLearner() async {
+    func matchColors(r:Double, g:Double, b:Double) async -> [Color]{
+        var firstColor, secondColor: Color
+        var matchedColors = [Color]()
         do {
             urlComponents?.path = "/scheme"
             urlComponents?.queryItems = [
                 URLQueryItem (name: "rgb",
-                              value:"0,71,171"),
+                              value:"\(r),\(g),\(b)"),
                 URLQueryItem (name: "mode", value: "analogic-complement"),
                 URLQueryItem(name: "count", value: "3")
             ]
@@ -30,12 +32,35 @@ class colorStructViewModel: ObservableObject {
 //            let str = String(decoding: data, as: UTF8.self)
 //            print(str)
             self.colors = try decoder.decode(ColorStruct.self, from: data)
-            print(self.colors?.colors[0].rgb.r)
-            print(self.colors?.colors[1].rgb.b)
-            print(self.colors?.colors[2].rgb.g)
-
+//            print(colors!.colors[0].rgb.r)
+//            print(colors!.colors[0].rgb.g)
+//            print(colors!.colors[0].hex.clean)
+            firstColor = hexToRGB(hex: colors!.colors[0].hex.clean)
+            secondColor = hexToRGB(hex: colors!.colors[1].hex.clean)
+            
+            matchedColors.append(firstColor)
+            matchedColors.append(secondColor)
+            
         } catch {
             print (error.localizedDescription)
         }
+        
+        return matchedColors
     }
+    
+    private func hexToRGB(hex: String) -> Color {
+        var hex = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        if hex.hasPrefix("#") {
+            hex.remove(at: hex.startIndex)
+        }
+        if hex.count != 6 {
+            return Color.white
+        }
+        var rgb: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&rgb)
+        return Color(red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
+                     green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
+                     blue: CGFloat(rgb & 0x0000FF) / 255.0)
+    }
+
 }

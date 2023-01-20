@@ -11,8 +11,9 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                bodyView()
-                matchView( prova: colorStructViewModel())
+                bodyView(colorVM: colorStructViewModel())
+//                matchView(
+//                    colorVM: colorStructViewModel())
             }.navigationTitle("Unleash your Style")
         }
     }
