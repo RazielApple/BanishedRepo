@@ -14,7 +14,7 @@ struct bodyView: View {
     @State var isShirtTapped = false
     @State var isPantsTapped = false
     @State var isShoesTapped = false
-    
+
     @State private var shirtColor = Color(red: 0, green: 0, blue: 0)
     @State private var pantsColor = Color(.black)
     @State private var shoesColor = Color(.black)
@@ -98,8 +98,6 @@ struct bodyView: View {
                 ColorPicker("", selection: $shoesColor)
                     .opacity(isShoesTapped ? 1.0 : 0.0)
                     .padding(.trailing, 50)
-                
-            
         }
                 .padding(.leading, 135)
             Button {
@@ -118,13 +116,13 @@ struct bodyView: View {
                 ZStack{
                     Rectangle()
                         .frame(width: 180,height: 80)
-                        .foregroundColor(.mint)
+                        .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 135/255, green: 220/255, blue: 200/255) : Color.mint)
                         .cornerRadius(20)
                     Text("Match")
                         .font(.largeTitle)
                         .foregroundColor(.white)
                 }
-            }
+            }.disabled(!(isShirtTapped || isPantsTapped || isShoesTapped))
             
         }
 
