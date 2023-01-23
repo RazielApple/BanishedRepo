@@ -16,8 +16,8 @@ struct bodyView: View {
     @State var isShoesTapped = false
 
     @State private var shirtColor = Color(red: 0, green: 0, blue: 0)
-    @State private var pantsColor = Color(.black)
-    @State private var shoesColor = Color(.black)
+    @State private var pantsColor = Color(red: 0, green: 0, blue: 0)
+    @State private var shoesColor = Color(red: 0, green: 0, blue: 0)
     var body: some View {
         VStack(spacing: 20){
             HStack() {
