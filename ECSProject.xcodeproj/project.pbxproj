@@ -14,10 +14,11 @@
 		25CD9062296F0C5900538F32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25CD9061296F0C5900538F32 /* Assets.xcassets */; };
 		25CD9066296F0C5900538F32 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25CD9065296F0C5900538F32 /* Preview Assets.xcassets */; };
 		AC16F2B2297214A200C25BF6 /* colorMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC16F2B1297214A200C25BF6 /* colorMatchView.swift */; };
-		AC527D332970241C00753F34 /* matchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC527D322970241C00753F34 /* matchPageView.swift */; };
 		AC527D3829703BE300753F34 /* colorFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC527D3729703BE300753F34 /* colorFile.swift */; };
 		AC961B3B296F43BE0003CE3A /* bodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC961B3A296F43BE0003CE3A /* bodyView.swift */; };
-		AC961B3D296F447C0003CE3A /* matchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC961B3C296F447C0003CE3A /* matchView.swift */; };
+		ACF36E342981697200078A58 /* ColorDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACF36E322981697200078A58 /* ColorDataModel.xcdatamodeld */; };
+		ACF36E362981704200078A58 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF36E352981704200078A58 /* PersistanceManager.swift */; };
+		ACF36E382981784E00078A58 /* SavedOutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF36E372981784E00078A58 /* SavedOutfitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +31,11 @@
 		25CD9063296F0C5900538F32 /* ECSProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ECSProject.entitlements; sourceTree = "<group>"; };
 		25CD9065296F0C5900538F32 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC16F2B1297214A200C25BF6 /* colorMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorMatchView.swift; sourceTree = "<group>"; };
-		AC527D322970241C00753F34 /* matchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchPageView.swift; sourceTree = "<group>"; };
 		AC527D3729703BE300753F34 /* colorFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorFile.swift; sourceTree = "<group>"; };
 		AC961B3A296F43BE0003CE3A /* bodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bodyView.swift; sourceTree = "<group>"; };
-		AC961B3C296F447C0003CE3A /* matchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchView.swift; sourceTree = "<group>"; };
+		ACF36E332981697200078A58 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		ACF36E352981704200078A58 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		ACF36E372981784E00078A58 /* SavedOutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedOutfitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				256A411C2978411100BA7FE9 /* colorStruct.swift */,
+				ACF36E322981697200078A58 /* ColorDataModel.xcdatamodeld */,
+				ACF36E352981704200078A58 /* PersistanceManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,9 +118,8 @@
 			children = (
 				25CD905F296F0C5800538F32 /* ContentView.swift */,
 				AC961B3A296F43BE0003CE3A /* bodyView.swift */,
-				AC961B3C296F447C0003CE3A /* matchView.swift */,
-				AC527D322970241C00753F34 /* matchPageView.swift */,
 				AC16F2B1297214A200C25BF6 /* colorMatchView.swift */,
+				ACF36E372981784E00078A58 /* SavedOutfitView.swift */,
 				AC527D34297025E100753F34 /* colorFile */,
 			);
 			path = View;
@@ -193,13 +196,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				25CD9060296F0C5800538F32 /* ContentView.swift in Sources */,
+				ACF36E342981697200078A58 /* ColorDataModel.xcdatamodeld in Sources */,
 				AC961B3B296F43BE0003CE3A /* bodyView.swift in Sources */,
+				ACF36E382981784E00078A58 /* SavedOutfitView.swift in Sources */,
+				ACF36E362981704200078A58 /* PersistanceManager.swift in Sources */,
 				256A411A297840E500BA7FE9 /* colorViewModel.swift in Sources */,
-				AC961B3D296F447C0003CE3A /* matchView.swift in Sources */,
 				256A411D2978411100BA7FE9 /* colorStruct.swift in Sources */,
 				AC16F2B2297214A200C25BF6 /* colorMatchView.swift in Sources */,
 				AC527D3829703BE300753F34 /* colorFile.swift in Sources */,
-				AC527D332970241C00753F34 /* matchPageView.swift in Sources */,
 				25CD905E296F0C5800538F32 /* ECSProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +416,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ACF36E322981697200078A58 /* ColorDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ACF36E332981697200078A58 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = ACF36E332981697200078A58 /* DataModel.xcdatamodel */;
+			path = ColorDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 25CD9052296F0C5800538F32 /* Project object */;
 }

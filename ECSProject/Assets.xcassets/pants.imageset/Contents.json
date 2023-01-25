@@ -1,6 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "pants-removebg-preview.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
       "filename" : "pants.png",
       "idiom" : "universal",
       "scale" : "1x"

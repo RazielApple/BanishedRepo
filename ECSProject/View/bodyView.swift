@@ -15,21 +15,32 @@ struct bodyView: View {
     @State var isPantsTapped = false
     @State var isShoesTapped = false
 
-    @State private var shirtColor = Color(red: 0, green: 0, blue: 0)
+    @State private var shirtColor = Color(red: 1, green: 1, blue: 0)
     @State private var pantsColor = Color(red: 0, green: 0, blue: 0)
     @State private var shoesColor = Color(red: 0, green: 0, blue: 0)
     var body: some View {
         VStack(spacing: 20){
             HStack() {
-                Image(isShirtTapped ? "shirt" : "blankShirt")
-                        .renderingMode(.template)
-                        .resizable()
-                        .foregroundColor(shirtColor)
-                        .shadow(radius: 5)
-                        .frame(width: 130,height: 130)
-                        .onTapGesture{
-                            isShirtTapped = true
-                        }
+                ZStack {
+                    
+                    if(isShirtTapped){
+                        Image("shirtFilled")
+                            .renderingMode(.template)
+                            .resizable()
+                            .foregroundColor(shirtColor)
+                            .frame(width: 120,height: 120)
+                            .onTapGesture{
+                                isShirtTapped = true
+                            }
+                    }
+                    Image("blankShirt")
+                            .renderingMode(.template)
+                            .resizable()
+                            .frame(width: 130,height: 130)
+                            .onTapGesture{
+                                isShirtTapped = true
+                            }
+                }
                 Text(Image(systemName: "minus.circle.fill"))
                     .font(.system(size: 20))
                     .foregroundColor(.red)
@@ -49,15 +60,26 @@ struct bodyView: View {
             .padding(.leading, 125)
             
             HStack{
-                Image(isPantsTapped ? "pants" : "blankPants")
-                    .renderingMode(.template)
-                    .resizable()
-                    .shadow(radius: 5)
-                    .frame(width: 130,height: 130)
-                    .foregroundColor(pantsColor)
-                    .onTapGesture{
-                        isPantsTapped = true
+                ZStack {
+                    
+                    if(isPantsTapped){
+                        Image("pantsFilled")
+                            .renderingMode(.template)
+                            .resizable()
+                            .foregroundColor(pantsColor)
+                            .frame(width: 120,height: 120)
+                            .onTapGesture{
+                                isPantsTapped = true
+                            }
                     }
+                    Image("pants")
+                            .renderingMode(.template)
+                            .resizable()
+                            .frame(width: 130,height: 130)
+                            .onTapGesture{
+                                isPantsTapped = true
+                            }
+                }
                 Text(Image(systemName: "minus.circle.fill"))
                     .font(.system(size: 20))
                     .foregroundColor(.red)
@@ -76,15 +98,26 @@ struct bodyView: View {
                 .padding(.leading, 125)
             
             HStack{
-                Image(isShoesTapped ? "shoes" : "blankShoes")
-                    .renderingMode(.template)
-                    .resizable()
-                    .shadow(radius: 5)
-                    .foregroundColor(shoesColor)
-                    .frame(width: 110,height: 110)
-                    .onTapGesture{
-                        isShoesTapped = true
+                ZStack {
+                    
+                    if(isShoesTapped){
+                        Image("shoesFilled")
+                            .renderingMode(.template)
+                            .resizable()
+                            .foregroundColor(shoesColor)
+                            .frame(width: 120,height: 120)
+                            .onTapGesture{
+                                isShoesTapped = true
+                            }
                     }
+                    Image("blankShoes")
+                            .renderingMode(.template)
+                            .resizable()
+                            .frame(width: 130,height: 130)
+                            .onTapGesture{
+                                isShoesTapped = true
+                            }
+                }
                 Text(Image(systemName: "minus.circle.fill"))
                     .font(.system(size: 20))
                     .foregroundColor(.red)
@@ -113,16 +146,30 @@ struct bodyView: View {
                     }
                 }
             } label: {
-                ZStack{
-                    Rectangle()
-                        .frame(width: 180,height: 80)
-                        .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 135/255, green: 220/255, blue: 200/255) : Color.mint)
-                        .cornerRadius(20)
-                    Text("Match")
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                }
-            }.disabled(!(isShirtTapped || isPantsTapped || isShoesTapped))
+                HStack{
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 180,height: 80)
+                            .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 132/255, green: 192/255, blue: 226/255) : Color.red)
+                            .cornerRadius(20)
+                        Text("Save")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            
+                    }.shadow(radius: 3)
+
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 180,height: 80)
+                            .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 33/255, green: 114/255, blue: 159/255) : Color.blue)
+                            .cornerRadius(20)
+                        Text("Match")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                    }.shadow(radius: 3)
+                }.disabled(!(isShirtTapped || isPantsTapped || isShoesTapped))
+                    .shadow(radius: 0)
+            }
             
         }
 
