@@ -73,7 +73,7 @@ struct SavedOutfitView: View {
                     Text("Outfit1")
                     
                 }
-            }.navigationTitle("TITLE")
+            }.navigationTitle("Favorites")
                 .padding(.top,-90)
         }
     }

@@ -9,12 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationStack{
-            VStack{
-                bodyView(colorVM: colorStructViewModel())
-//                matchView(
-//                    colorVM: colorStructViewModel())
-            }.navigationTitle("Unleash your Style")
+        TabView{
+            bodyView(colorVM: colorStructViewModel()).tabItem {
+                Label("Match", systemImage: "arrow.triangle.2.circlepath.circle.fill")
+            }
+            
+            SavedOutfitView().tabItem {
+                Label("Favorites", systemImage: "star.fill")
+            }
+
         }
     }
 }

@@ -34,12 +34,12 @@ struct bodyView: View {
                             }
                     }
                     Image("blankShirt")
-                            .renderingMode(.template)
-                            .resizable()
-                            .frame(width: 130,height: 130)
-                            .onTapGesture{
-                                isShirtTapped = true
-                            }
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width: 130,height: 130)
+                        .onTapGesture{
+                            isShirtTapped = true
+                        }
                 }
                 Text(Image(systemName: "minus.circle.fill"))
                     .font(.system(size: 20))
@@ -51,11 +51,11 @@ struct bodyView: View {
                         isShirtTapped = false
                         shirtColor = .black
                     }
-                    ColorPicker("", selection: $shirtColor)
+                ColorPicker("", selection: $shirtColor)
                     .opacity(isShirtTapped ? 1.0 : 0.0)
                     .padding(.trailing, 50)
                 
-                   
+                
             }
             .padding(.leading, 125)
             
@@ -73,12 +73,12 @@ struct bodyView: View {
                             }
                     }
                     Image("pants")
-                            .renderingMode(.template)
-                            .resizable()
-                            .frame(width: 130,height: 130)
-                            .onTapGesture{
-                                isPantsTapped = true
-                            }
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width: 130,height: 130)
+                        .onTapGesture{
+                            isPantsTapped = true
+                        }
                 }
                 Text(Image(systemName: "minus.circle.fill"))
                     .font(.system(size: 20))
@@ -95,7 +95,7 @@ struct bodyView: View {
                     .padding(.trailing, 50)
                 
             }
-                .padding(.leading, 125)
+            .padding(.leading, 125)
             
             HStack{
                 ZStack {
@@ -111,12 +111,12 @@ struct bodyView: View {
                             }
                     }
                     Image("blankShoes")
-                            .renderingMode(.template)
-                            .resizable()
-                            .frame(width: 130,height: 130)
-                            .onTapGesture{
-                                isShoesTapped = true
-                            }
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width: 130,height: 130)
+                        .onTapGesture{
+                            isShoesTapped = true
+                        }
                 }
                 Text(Image(systemName: "minus.circle.fill"))
                     .font(.system(size: 20))
@@ -131,8 +131,28 @@ struct bodyView: View {
                 ColorPicker("", selection: $shoesColor)
                     .opacity(isShoesTapped ? 1.0 : 0.0)
                     .padding(.trailing, 50)
-        }
-                .padding(.leading, 135)
+            }
+            .padding(.leading, 135)
+            
+            HStack{
+                Button {
+                    vm.addOutfit(hexShirtIN: "001BE9", hexPantsIN: "3DC461", hexShoesIN: "FF0000")
+                } label: {
+                    
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 180,height: 80)
+                            .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 132/255, green: 192/255, blue: 226/255) : Color.red)
+                            .cornerRadius(20)
+                        Text("Save")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                        
+                    }.shadow(radius: 3)
+                }.disabled(!(isShirtTapped || isPantsTapped || isShoesTapped))
+                    .shadow(radius: 0)
+            }
+            
             Button {
                 Task{
                     if (isShirtTapped){
@@ -146,35 +166,20 @@ struct bodyView: View {
                     }
                 }
             } label: {
-                HStack{
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 180,height: 80)
-                            .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 132/255, green: 192/255, blue: 226/255) : Color.red)
-                            .cornerRadius(20)
-                        Text("Save")
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                            
-                    }.shadow(radius: 3)
-
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 180,height: 80)
-                            .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 33/255, green: 114/255, blue: 159/255) : Color.blue)
-                            .cornerRadius(20)
-                        Text("Match")
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                    }.shadow(radius: 3)
-                }.disabled(!(isShirtTapped || isPantsTapped || isShoesTapped))
-                    .shadow(radius: 0)
-            }
-            
+                ZStack{
+                    Rectangle()
+                        .frame(width: 180,height: 80)
+                        .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 33/255, green: 114/255, blue: 159/255) : Color.blue)
+                        .cornerRadius(20)
+                    Text("Match")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                }.shadow(radius: 3)
+            }.disabled(!(isShirtTapped || isPantsTapped || isShoesTapped))
+                .shadow(radius: 0)
         }
-
-    }
-    
+        }
+            
     func pickColors(_ chosenClothColor: Color, _ firstNotChosenClothColor: inout Color, _ secondNotChosenClothColor: inout Color) async  {
         array = await colorVM.matchColors(r: Double((chosenClothColor.cgColor?.components![0])!),g: Double((chosenClothColor.cgColor?.components![1])!),b: Double((chosenClothColor.cgColor?.components![2])!))
         if (array.count != 0){
@@ -188,7 +193,7 @@ struct bodyView: View {
         isPantsTapped = true
         isShoesTapped = true
     }
-}
+    }
 
 
 

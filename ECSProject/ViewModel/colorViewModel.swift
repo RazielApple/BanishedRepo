@@ -31,8 +31,8 @@ class colorStructViewModel: ObservableObject {
             let (data,_) = try await URLSession.shared.data(for: request)
 
             self.colors = try decoder.decode(ColorStruct.self, from: data)
-            firstColor = hexToRGB(hex: colors!.colors[0].hex.clean)
-            secondColor = hexToRGB(hex: colors!.colors[1].hex.clean)
+            firstColor = Color(hex: colors!.colors[0].hex.clean)
+            secondColor = Color(hex: colors!.colors[1].hex.clean)
             
             matchedColors.append(firstColor)
             matchedColors.append(secondColor)
@@ -44,7 +44,7 @@ class colorStructViewModel: ObservableObject {
         return matchedColors
     }
     
-    private func hexToRGB(hex: String) -> Color {
+   /* private func hexToRGB(hex: String) -> Color {
         var hex = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         if hex.hasPrefix("#") {
             hex.remove(at: hex.startIndex)
@@ -57,6 +57,6 @@ class colorStructViewModel: ObservableObject {
         return Color(red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
                      green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
                      blue: CGFloat(rgb & 0x0000FF) / 255.0)
-    }
+    }*/
 
 }
