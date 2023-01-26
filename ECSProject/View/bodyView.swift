@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct bodyView: View {
     var colorVM: colorStructViewModel
@@ -136,7 +137,7 @@ struct bodyView: View {
             
             HStack{
                 Button {
-                    vm.addOutfit(hexShirtIN: "001BE9", hexPantsIN: "3DC461", hexShoesIN: "FF0000")
+                    vm.addOutfit(hexShirtIN: toHexString(color: shirtColor), hexPantsIN: toHexString(color: pantsColor), hexShoesIN: toHexString(color: shoesColor))
                 } label: {
                     
                     ZStack{
@@ -192,6 +193,17 @@ struct bodyView: View {
         isShirtTapped = true
         isPantsTapped = true
         isShoesTapped = true
+    }
+    
+    func toHexString(color: Color) -> String {
+        let uiColor = UIColor(color)
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        let rgb: Int = (Int)(red*255)<<16 | (Int)(green*255)<<8 | (Int)(blue*255)<<0
+        return String(format:"#%06x", rgb)
     }
     }
 

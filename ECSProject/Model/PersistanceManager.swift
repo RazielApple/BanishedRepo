@@ -39,7 +39,7 @@ class PersistanceManager: ObservableObject{
         let newOutfit = OutfitEntity(context: container.viewContext)
         newOutfit.hexShirt = hexShirtIN
         newOutfit.hexPant = hexPantsIN
-        newOutfit.hexShirt = hexShirtIN
+        newOutfit.hexShoes = hexShoesIN
         newOutfit.outfitName = "New Outfit"
         saveData()
     }
