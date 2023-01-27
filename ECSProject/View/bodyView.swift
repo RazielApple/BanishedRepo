@@ -143,7 +143,7 @@ struct bodyView: View {
                     ZStack{
                         Rectangle()
                             .frame(width: 180,height: 80)
-                            .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 132/255, green: 192/255, blue: 226/255) : Color.red)
+                            .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 132/255, green: 192/255, blue: 226/255) : Color(red: 132/255, green: 192/255, blue: 226/255))
                             .cornerRadius(20)
                         Text("Save")
                             .font(.largeTitle)
@@ -170,7 +170,7 @@ struct bodyView: View {
                 ZStack{
                     Rectangle()
                         .frame(width: 180,height: 80)
-                        .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 33/255, green: 114/255, blue: 159/255) : Color.blue)
+                        .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 33/255, green: 114/255, blue: 159/255) : Color(red: 33/255, green: 114/255, blue: 159/255))
                         .cornerRadius(20)
                     Text("Match")
                         .font(.largeTitle)
