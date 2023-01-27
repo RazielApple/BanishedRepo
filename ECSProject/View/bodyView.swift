@@ -16,7 +16,7 @@ struct bodyView: View {
     @State var isPantsTapped = false
     @State var isShoesTapped = false
 
-    @State private var shirtColor = Color(red: 1, green: 1, blue: 0)
+    @State private var shirtColor = Color(red: 0, green: 0, blue: 0)
     @State private var pantsColor = Color(red: 0, green: 0, blue: 0)
     @State private var shoesColor = Color(red: 0, green: 0, blue: 0)
     var body: some View {
@@ -143,7 +143,7 @@ struct bodyView: View {
                     ZStack{
                         Rectangle()
                             .frame(width: 180,height: 80)
-                            .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 132/255, green: 192/255, blue: 226/255) : Color(red: 132/255, green: 192/255, blue: 226/255))
+                            .foregroundColor(!(isShirtTapped || isPantsTapped || isShoesTapped) ? Color(red: 132/255, green: 192/255, blue: 226/255) : Color(red: 157/255, green: 33/255, blue: 159/255))
                             .cornerRadius(20)
                         Text("Save")
                             .font(.largeTitle)
